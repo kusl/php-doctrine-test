@@ -32,6 +32,7 @@ variables:
 test:mysql:
   script:
   - mysql --version
+  - mysql -u root -pmysql < sql/recreate_or.sql
   - vendor/bin/phpunit --configuration phpunit_mysql.xml --coverage-text
 
 # We test PHP7 with MySQL, but we allow it to fail
@@ -39,5 +40,6 @@ test:php7:mysql:
   image: php:7
   script:
   - mysql --version
+  - mysql -u root -pmysql < sql/recreate_or.sql
   - vendor/bin/phpunit --configuration phpunit_mysql.xml --coverage-text
   allow_failure: true
