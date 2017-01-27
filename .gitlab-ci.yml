@@ -31,6 +31,7 @@ variables:
 # We test PHP5.6 (the default) with MySQL
 test:mysql:
   script:
+  - which mysql
   - vendor/bin/phpunit --configuration phpunit_mysql.xml --coverage-text
 
 # We test PHP7 with MySQL, but we allow it to fail
